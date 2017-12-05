@@ -8,11 +8,7 @@ class GithubService
   end
 
   def user_info
-        
-  end
-
-  def self.auth_link
-    github_address + "authorize?client_id=#{ENV['GITHUB_CLIENT']}&redirect_uri=http://localhost:3000/auth/callback"  
+            
   end
 
   def self.get_access_token(code)
