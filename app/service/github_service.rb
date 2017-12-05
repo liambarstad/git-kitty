@@ -12,7 +12,7 @@ class GithubService
   end
 
   def self.get_access_token(code)
-    conn = Faraday.new(url: github_address + "oauth/access_token")
+    conn = Faraday.new(url: "https://github.com/login/oauth/access_token")
     response = conn.post do |f|
       f.params["client_id"] = ENV["GITHUB_CLIENT"]
       f.params["client_secret"] = ENV["GITHUB_SECRET"]
@@ -21,10 +21,6 @@ class GithubService
     end
     result = JSON.parse(response.body)
     result["access_token"]
-  end
-
-  def self.github_address
-    "https://github.com/login/"
   end
 
 end
